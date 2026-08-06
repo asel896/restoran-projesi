@@ -1,0 +1,47 @@
+.carouselContainer {
+  background-color: var(--duman, #221D16);
+  border: 1px solid var(--hairline, #3A3226);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+.title {
+  font-size: 16px;
+  color: var(--kagit, #F3E9D2);
+  margin: 0 0 12px 0;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+}
+
+.itemsScroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+.itemsScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.itemCard {
+  background-color: var(--is, #17140F);
+  border: 1px solid var(--hairline, #3A3226);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: var(--kagit, #F3E9D2);
+  font-size: 13px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s ease;
+}
+
+.itemCard:hover {
+  border-color: var(--bakir, #B9863F);
+}

@@ -1,0 +1,118 @@
+.container {
+  --kor: #C43E1C;
+  --kor-light: #E4602F;
+  --alev: #F2A33B;
+  --bakir: #B9863F;
+  --is: #17140F;
+  --duman: #221D16;
+  --duman-2: #2B241A;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --hairline: #3A3226;
+  --alert: #C43E1C;
+
+  min-height: 100vh;
+  /* Arka plan görseli ve karartma katmanı (overlay) */
+  background: linear-gradient(
+      rgba(23, 20, 15, 0.85), 
+      rgba(23, 20, 15, 0.85)
+    ), 
+    url('back3.jpg'); /* Görselin uzantısına göre .jpg veya .webp yapabilirsin */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--kagit);
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--duman);
+  padding: 14px 32px;
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+.brand {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--kagit);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.navLink {
+  color: var(--kagit-dim);
+  background-color: transparent;
+  padding: 6px 14px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Work Sans', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--kagit);
+  background-color: var(--duman-2);
+}
+
+.navLinkActive {
+  background-color: var(--duman-2);
+  color: var(--bakir);
+  border-color: var(--hairline);
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.waiterBadge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--kagit-dim);
+}
+
+.logoutBtn {
+  background-color: transparent;
+  color: var(--alert);
+  border: 1px solid var(--hairline);
+  padding: 6px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background-color: var(--alert);
+  color: var(--kagit);
+  border-color: var(--alert);
+}
+
+.mainContent {
+  flex: 1;
+  padding: 32px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}

@@ -1,0 +1,213 @@
+.stage {
+  --kor: #C43E1C;
+  --kor-light: #E4602F;
+  --alev: #F2A33B;
+  --bakir: #B9863F;
+  --is: #17140F;
+  --duman: #221D16;
+  --duman-2: #2B241A;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --hairline: #3A3226;
+
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(rgba(23, 20, 15, 0.94), rgba(23, 20, 15, 0.97)), url('back1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
+}
+
+.smokeLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.smokeWisp {
+  position: absolute;
+  bottom: 42%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 233, 210, 0.05) 0%, rgba(243, 233, 210, 0) 70%);
+  filter: blur(18px);
+  animation: smokeRise 9s ease-in-out infinite;
+}
+
+.smoke1 {
+  transform: translate(-50%, 0);
+  animation-delay: 0s;
+}
+
+.smoke2 {
+  left: 38%;
+  width: 160px;
+  height: 160px;
+  animation-delay: 3s;
+  animation-duration: 11s;
+}
+
+.smoke3 {
+  left: 62%;
+  width: 180px;
+  height: 180px;
+  animation-delay: 6s;
+  animation-duration: 10s;
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translate(-50%, 0) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -260px) scale(1.7);
+    opacity: 0;
+  }
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background-color: var(--duman);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 35px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  color: var(--kagit);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 4px;
+  background-color: var(--bakir);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: var(--kagit);
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 6px 0 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--bakir);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tabs {
+  display: flex;
+  background-color: var(--is);
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid var(--hairline);
+  margin-bottom: 25px;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  color: var(--kagit-dim);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tabButtonActive {
+  background-color: var(--duman-2);
+  color: var(--kor-light);
+  border: 1px solid var(--hairline);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bakir);
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+  background-color: var(--is);
+  color: var(--kagit);
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--kor);
+}
+
+.pinInput {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 6px;
+}
+
+.submitButton {
+  padding: 12px;
+  border-radius: 3px;
+  border: none;
+  background-color: var(--kor);
+  color: var(--kagit);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.submitButton:hover {
+  background-color: var(--kor-light);
+}

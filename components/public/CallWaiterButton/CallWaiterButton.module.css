@@ -1,0 +1,62 @@
+.footerBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(34, 29, 22, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid var(--hairline, #3A3226);
+  padding: 12px 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+.waiterButton {
+  flex: 1;
+  max-width: 280px;
+  background-color: var(--kor-red, #ef4444);
+  color: var(--kagit, #F3E9D2);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: filter 0.2s ease;
+}
+
+.waiterButton:hover {
+  filter: brightness(1.1);
+}
+
+.billButton {
+  flex: 1;
+  max-width: 280px;
+  background-color: var(--bakir, #f59e0b);
+  color: var(--is, #17140F);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: filter 0.2s ease;
+}
+
+.billButton:hover {
+  filter: brightness(1.1);
+}

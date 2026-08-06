@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+.stage {
+  --kor: #C43E1C;
+  --kor-light: #E4602F;
+  --alev: #F2A33B;
+  --bakir: #B9863F;
+  --is: #17140F;
+  --duman: #221D16;
+  --duman-2: #2B241A;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --hairline: #3A3226;
+
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(rgba(23, 20, 15, 0.94), rgba(23, 20, 15, 0.97)), url('back.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
+}
+
+.smokeLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.smokeWisp {
+  position: absolute;
+  bottom: 42%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 233, 210, 0.05) 0%, rgba(243, 233, 210, 0) 70%);
+  filter: blur(18px);
+  animation: smokeRise 9s ease-in-out infinite;
+}
+
+.smoke1 {
+  transform: translate(-50%, 0);
+  animation-delay: 0s;
+}
+
+.smoke2 {
+  left: 38%;
+  width: 160px;
+  height: 160px;
+  animation-delay: 3s;
+  animation-duration: 11s;
+}
+
+.smoke3 {
+  left: 62%;
+  width: 180px;
+  height: 180px;
+  animation-delay: 6s;
+  animation-duration: 10s;
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translate(-50%, 0) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -260px) scale(1.7);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smokeWisp {
+    animation: none;
+    display: none;
+  }
+}
+
+.field {
+  position: relative;
+  z-index: 1;
+  width: min(640px, 92vw);
+  aspect-ratio: 1 / 1;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--duman);
+  border: 1.5px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  box-shadow: inset 0 0 0 6px var(--is);
+}
+
+.centerEyebrow {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(17px, 3vw, 23px);
+  color: var(--kor-light);
+}
+
+.centerTitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bakir);
+}
+
+.burner {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--duman);
+  border: 1.5px solid var(--hairline);
+  color: var(--kagit);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+}
+
+.badge {
+  position: absolute;
+  top: 2%;
+  right: 6%;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 20px;
+  background: var(--kor);
+  color: var(--kagit);
+  border: 2px solid var(--is);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.pilot {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--alev);
+  box-shadow: 0 0 6px 2px rgba(242, 163, 59, 0.45);
+  animation: pilotPulse 2.4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.burner:hover:not(:disabled) .pilot,
+.igniting .pilot {
+  opacity: 0;
+}
+
+@keyframes pilotPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pilot {
+    animation: none;
+    opacity: 0.75;
+  }
+}
+
+.burner:hover:not(:disabled) {
+  border-color: var(--kor);
+  background: var(--duman-2);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.burner:disabled {
+  cursor: default;
+}
+
+.burnerIcon {
+  color: var(--bakir);
+}
+
+.burner:hover .burnerIcon {
+  color: var(--kor-light);
+}
+
+.burnerLabel {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0 8px;
+  color: var(--kagit-dim);
+}
+
+.lg {
+  width: 26%;
+  aspect-ratio: 1 / 1;
+}
+
+.md {
+  width: 20%;
+  aspect-ratio: 1 / 1;
+}
+
+.sm {
+  width: 15%;
+  aspect-ratio: 1 / 1;
+}
+
+.sm .burnerLabel {
+  font-size: 9.5px;
+}
+
+.igniting {
+  border-color: var(--kor);
+  background: var(--duman-2);
+}
+
+.flameWrap {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Üzerine gelince: sürekli titreşen alev */
+.burner:hover:not(:disabled) .flameWrap {
+  opacity: 1;
+}
+
+.flame {
+  position: absolute;
+  bottom: 6%;
+  width: 46%;
+  height: 46%;
+  color: var(--alev);
+  opacity: 0.8;
+  animation: flicker 1s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.burner:hover:not(:disabled) .flame {
+  animation-play-state: running;
+}
+
+.flame2 {
+  left: 32%;
+  width: 34%;
+  height: 34%;
+  color: var(--kor-light);
+  animation-delay: 0.15s;
+}
+
+.flame3 {
+  left: 60%;
+  width: 30%;
+  height: 30%;
+  color: var(--kor);
+  animation-delay: 0.3s;
+}
+
+@keyframes flicker {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(-8%) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2%) scale(0.94);
+    opacity: 0.7;
+  }
+}
+
+/* Tıklanınca: patlayıp yükselen alev, sonra sayfa geçişi */
+.igniting .flameWrap {
+  opacity: 1;
+}
+
+.igniting .flame {
+  animation: rise 0.48s ease-out forwards;
+  animation-play-state: running;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(10%) scale(0.6);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-6%) scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40%) scale(0.85);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame {
+    animation: none;
+    opacity: 0.9;
+  }
+  .burner:hover:not(:disabled) {
+    transform: translate(-50%, -50%);
+  }
+}

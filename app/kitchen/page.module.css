@@ -1,0 +1,4 @@
+.pageContainer {
+  background-color: var(--is, #17140F);
+  min-height: 100vh;
+}

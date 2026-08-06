@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background-color: #221D16;
+  border: 1px solid #3A3226;
+  border-radius: 3px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customerName {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #F3E9D2;
+}
+
+.phone {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #B9863F;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.details {
+  font-family: 'Work Sans', sans-serif;
+  color: #C9BC9C;
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.detailValue {
+  font-family: 'IBM Plex Mono', monospace;
+  color: #F3E9D2;
+}
+
+.note {
+  font-family: 'Work Sans', sans-serif;
+  color: #C9BC9C;
+  font-size: 13px;
+  margin: 6px 0 0 0;
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.approveButton {
+  background-color: #6C7F44;
+  color: #F3E9D2;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+}
+
+.approveButton:hover {
+  background-color: #7c9250;
+}
+
+.cancelButton {
+  background-color: #C43E1C;
+  color: #F3E9D2;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+}
+
+.cancelButton:hover {
+  background-color: #E4602F;
+}

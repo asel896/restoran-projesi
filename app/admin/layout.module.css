@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+.container {
+  --kor: #C43E1C;
+  --kor-light: #E4602F;
+  --bakir: #B9863F;
+  --is: #17140F;
+  --duman: #221D16;
+  --duman-2: #2B241A;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --hairline: #3A3226;
+
+  min-height: 100vh;
+  background-color: var(--is);
+  font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+}
+
+.topbar {
+  height: 60px;
+  background-color: var(--duman);
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.backToHome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--kor-light);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.backToHome:hover {
+  opacity: 0.8;
+}
+
+.backIcon {
+  color: var(--kor);
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.welcomeText {
+  font-size: 13.5px;
+  color: var(--kagit-dim);
+}
+
+.welcomeText strong {
+  color: var(--kagit);
+}
+
+.logoutBtnTop {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background-color: transparent;
+  color: var(--kor-light);
+  border: 1px solid var(--hairline);
+  padding: 7px 15px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.logoutBtnTop:hover {
+  border-color: var(--kor);
+  background-color: rgba(196, 62, 28, 0.1);
+}
+
+.pageContent {
+  flex: 1;
+  background-color: var(--is);
+}

@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px dashed #3A3226;
+  padding-bottom: 16px;
+  margin-bottom: 4px;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #B9863F;
+}
+
+.title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: #F3E9D2;
+}
+
+.titleHighlight {
+  font-style: italic;
+  font-weight: 400;
+  color: #C43E1C;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.metricCard {
+  position: relative;
+  background-color: #221D16;
+  border: 1px solid #3A3226;
+  border-radius: 3px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.metricCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 4px;
+  background-color: #B9863F;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.metricTitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #B9863F;
+  margin: 0 0 10px 0;
+}
+
+.metricValue {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #F3E9D2;
+}
+
+.metricSubtitlePositive {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #6C7F44;
+  letter-spacing: 0.5px;
+}
+
+.metricSubtitleNeutral {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #C9BC9C;
+  letter-spacing: 0.5px;
+}

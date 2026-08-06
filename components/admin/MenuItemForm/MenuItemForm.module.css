@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+.pad {
+  --kor: #C43E1C;
+  --kor-light: #E4602F;
+  --bakir: #B9863F;
+  --is: #17140F;
+  --duman: #221D16;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --hairline: #3A3226;
+
+  background: var(--duman);
+  border: 1px dashed var(--hairline);
+  border-radius: 3px;
+  padding: 20px;
+  height: fit-content;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.padHead {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--kagit);
+  margin: 0 0 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bakir);
+  display: block;
+  margin: 14px 0 6px;
+}
+
+.form > div:first-child .fieldLabel {
+  margin-top: 0;
+}
+
+.field {
+  width: 100%;
+  background: var(--is);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  color: var(--kagit);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  padding: 9px 11px;
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--kor);
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 18px;
+  background: var(--kor);
+  border: none;
+  color: var(--kagit);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 11px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.submitBtn:hover {
+  background: var(--kor-light);
+}

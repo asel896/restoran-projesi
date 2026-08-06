@@ -1,0 +1,26 @@
+.card {
+  background-color: #221D16;
+  border: 1px solid #3A3226;
+  border-radius: 3px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #B9863F;
+  margin: 0 0 8px 0;
+}
+
+.value {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #F3E9D2;
+}

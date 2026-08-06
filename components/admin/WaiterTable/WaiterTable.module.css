@@ -1,0 +1,77 @@
+.card {
+  background-color: #221D16;
+  border: 1px solid #3A3226;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+}
+
+.theadRow {
+  border-bottom: 1px dashed #3A3226;
+  color: #C9BC9C;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.th {
+  padding: 10px;
+}
+
+.tbodyRow {
+  border-bottom: 1px solid #3A3226;
+  transition: background-color 0.2s ease;
+}
+
+.tbodyRow:hover {
+  background-color: #2B241A;
+}
+
+.tdName {
+  padding: 12px;
+  font-weight: 600;
+  color: #F3E9D2;
+  font-family: 'Fraunces', serif;
+}
+
+.tdShift {
+  padding: 12px;
+  color: #C9BC9C;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+
+.tdStatus {
+  padding: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+}
+
+.badgeActive {
+  background-color: rgba(108, 127, 68, 0.15);
+  color: #6C7F44;
+  border-color: #6C7F44;
+}
+
+.badgeInactive {
+  background-color: rgba(185, 134, 63, 0.15);
+  color: #B9863F;
+  border-color: #B9863F;
+}

@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(23, 20, 15, 0.9),
+      rgba(23, 20, 15, 0.9)
+    ),
+    url('back4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--kagit, #F3E9D2);
+  padding-bottom: 110px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.header {
+  background-color: var(--duman, #221D16);
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--hairline, #3A3226);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+.main {
+  padding: 24px 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alertBox {
+  background-color: var(--feslegen, #6C7F44);
+  color: var(--kagit, #F3E9D2);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  border: 1px solid var(--hairline, #3A3226);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--kagit-dim, #C9BC9C);
+  padding: 40px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+
+/* Rezervasyon CTA — sadece QR olmadan gelen ziyaretçiye gösterilir */
+.reservationCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 28px;
+  padding: 14px 20px;
+  background-color: transparent;
+  border: 1px dashed var(--bakir, #B9863F);
+  border-radius: 3px;
+  color: var(--bakir, #B9863F);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.reservationCta:hover {
+  background-color: var(--duman-2, #2B241A);
+  color: var(--kor-light, #E4602F);
+}
+
+.reservationCtaLabel {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.reservationCtaArrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+}

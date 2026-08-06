@@ -1,0 +1,85 @@
+.form {
+  background-color: var(--duman, #221D16);
+  border: 1px solid var(--hairline, #3A3226);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 18px;
+  color: var(--kagit, #F3E9D2);
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: block;
+  color: var(--kagit-dim, #C9BC9C);
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.input {
+  width: 100%;
+  background-color: var(--is, #17140F);
+  border: 1px solid var(--hairline, #3A3226);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--kagit, #F3E9D2);
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--kagit-dim, #C9BC9C);
+  opacity: 0.5;
+}
+
+.input:focus {
+  border-color: var(--bakir, #B9863F);
+}
+
+.gridRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.submitButton {
+  background-color: var(--bakir, #B9863F);
+  color: var(--is, #17140F);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+.submitButton:hover {
+  filter: brightness(1.1);
+}
+
+.submitButton:active {
+  transform: scale(0.99);
+}

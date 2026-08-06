@@ -1,0 +1,510 @@
+.container {
+  --kor: #C43E1C;
+  --kor-light: #E4602F;
+  --alev: #F2A33B;
+  --bakir: #B9863F;
+  --is: #17140F;
+  --duman: #221D16;
+  --duman-2: #2B241A;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --hairline: #3A3226;
+  --success: #6C7F44;
+  --alert: #C43E1C;
+
+  padding: 16px;
+  background-color: var(--is);
+  min-height: calc(100vh - 73px);
+  color: var(--kagit);
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.topBar {
+  display: flex;
+  flex-direction: column; /* Mobilde buton ve başlığın alt alta gelmesi için */
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.backBtn {
+  background-color: var(--duman);
+  color: var(--kagit);
+  border: 1px solid var(--hairline);
+  padding: 8px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.backBtn:hover {
+  background-color: var(--duman-2);
+  border-color: var(--bakir);
+}
+
+.pageTitle {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--kagit);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+}
+
+.menuSection {
+  background-color: var(--duman);
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid var(--hairline);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+  background-color: var(--is);
+  color: var(--kagit);
+  font-size: 13px;
+  font-family: 'Work Sans', sans-serif;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--bakir);
+}
+
+.categoryContainer {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  scrollbar-width: none; /* Firefox için scrollbar gizleme */
+}
+
+.categoryContainer::-webkit-scrollbar {
+  display: none; /* Chrome/Safari için scrollbar gizleme */
+}
+
+.categoryBtn {
+  padding: 8px 16px;
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+  background-color: var(--is);
+  color: var(--kagit-dim);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.categoryBtn:hover {
+  color: var(--kagit);
+  background-color: var(--duman-2);
+}
+
+.categoryBtnActive {
+  background-color: var(--duman-2);
+  color: var(--bakir);
+  border-color: var(--bakir);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  max-height: 460px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.emptyMenu {
+  grid-column: 1 / -1;
+  color: var(--kagit-dim);
+  text-align: center;
+  padding: 40px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+
+.productCard {
+  background-color: var(--is);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 85px;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.productCard:hover {
+  border-color: var(--bakir);
+  background-color: var(--duman-2);
+}
+
+.productName {
+  font-weight: 600;
+  color: var(--kagit);
+  font-size: 13px;
+}
+
+.productFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.productPrice {
+  color: var(--bakir);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.addProductBadge {
+  background-color: transparent;
+  color: var(--alev);
+  border: 1px solid var(--hairline);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.billBox {
+  background-color: var(--duman);
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.billTitle {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  color: var(--kagit);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.emptyBill {
+  color: var(--kagit-dim);
+  text-align: center;
+  padding: 30px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+.billItemList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.billItemCard {
+  background-color: var(--is);
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--hairline);
+}
+
+.billItemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.billItemName {
+  font-weight: 600;
+  color: var(--kagit);
+  font-size: 13px;
+}
+
+.billItemNote {
+  font-size: 12px;
+  color: var(--alev);
+  margin-top: 4px;
+  font-style: italic;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.billItemCalculation {
+  font-size: 11px;
+  color: var(--kagit-dim);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.billItemTotal {
+  color: var(--bakir);
+}
+
+.qtyControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.qtyBtn {
+  background-color: var(--duman);
+  color: var(--kagit);
+  border: 1px solid var(--hairline);
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'IBM Plex Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.qtyBtn:hover {
+  background-color: var(--duman-2);
+  border-color: var(--bakir);
+}
+
+.qtyValue {
+  font-weight: 600;
+  width: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--kagit);
+}
+
+.totalSummary {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.totalLabel {
+  color: var(--kagit);
+  font-family: 'Fraunces', serif;
+}
+
+.totalValue {
+  color: var(--bakir);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+}
+
+.closeBillBtn {
+  background-color: var(--success);
+  color: var(--kagit);
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.closeBillBtn:disabled {
+  background-color: var(--hairline);
+  color: var(--kagit-dim);
+  cursor: not-allowed;
+}
+
+.closeBillBtn:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(23, 20, 15, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.modalBox {
+  background-color: var(--duman);
+  padding: 20px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--hairline);
+  box-sizing: border-box;
+}
+
+.modalTitle {
+  margin: 0 0 6px 0;
+  color: var(--kagit);
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+}
+
+.modalPrice {
+  margin: 0 0 16px 0;
+  color: var(--bakir);
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+}
+
+.modalLabel {
+  display: block;
+  font-size: 12px;
+  color: var(--kagit-dim);
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+  background-color: var(--is);
+  color: var(--kagit);
+  font-size: 13px;
+  font-family: 'Work Sans', sans-serif;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.modalInput:focus {
+  outline: none;
+  border-color: var(--bakir);
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.modalCancelBtn {
+  background-color: var(--is);
+  color: var(--kagit-dim);
+  border: 1px solid var(--hairline);
+  padding: 10px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.modalCancelBtn:hover {
+  color: var(--kagit);
+  background-color: var(--duman-2);
+}
+
+.modalConfirmBtn {
+  background-color: var(--kor);
+  color: var(--kagit);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+}
+
+.modalConfirmBtn:hover {
+  background-color: var(--kor-light);
+}
+
+/* ===== Mobil Uyum (Media Queries) ===== */
+@media (min-width: 768px) {
+  .topBar {
+    flex-direction: row; /* Masaüstü ekranlarda buton ve başlık tekrar yan yana */
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 12px;
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .menuSection, .billBox {
+    padding: 16px;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-height: none; /* Mobilde scroll sınırını kaldırıp akışkan yapıyoruz */
+  }
+
+  .billItemList {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: 1fr; /* Çok küçük ekranlarda ürün kartları tam genişlik */
+  }
+
+  .modalActions {
+    flex-direction: column-reverse;
+  }
+
+  .modalCancelBtn, .modalConfirmBtn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+}

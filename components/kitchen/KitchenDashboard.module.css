@@ -1,0 +1,691 @@
+:root {
+  --is: #17140F;
+  --kagit: #F3E9D2;
+  --kagit-dim: #C9BC9C;
+  --duman: #221D16;
+  --hairline: #3A3226;
+  --bakir: #B9863F;
+  --kor-red: #EF5350;   /* biraz açıldı: koyu zeminde AA kontrastı için */
+  --success: #7C9153;  /* biraz açıldı: koyu zeminde AA kontrastı için */
+  --warning: #f59e0b;
+  --info: #3b82f6;
+}
+
+.container {
+  padding: 24px;
+  background-color: var(--is);
+  color: var(--kagit);
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+}
+
+/* ===== Üst Navigasyon Barı ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(34, 29, 22, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 16px 24px;
+  /* negatif margin yerine container'dan bağımsız tam-genişlik şeridi */
+  width: 100%;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--kagit);
+  letter-spacing: 0.5px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userProfile {
+  font-size: 14px;
+  color: var(--kagit-dim);
+}
+
+.logoutButton {
+  background-color: transparent;
+  color: var(--kor-red);
+  border: 1px solid var(--hairline);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.logoutButton:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.navLink,
+.navLinkActive {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.navLink {
+  color: var(--kagit-dim);
+}
+.navLink:hover {
+  color: var(--kagit);
+  background-color: rgba(58, 50, 38, 0.3);
+}
+.navLinkActive {
+  background-color: var(--hairline);
+  color: var(--bakir);
+  border-color: var(--hairline);
+}
+
+/* ===== Sayfa İçerik Başlığı ===== */
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: var(--kagit);
+}
+
+.counterBadge {
+  background-color: var(--duman);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--hairline);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: var(--kagit-dim);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Sipariş / Kart Tasarımları ===== */
+.orderCard {
+  background-color: var(--duman);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.orderCard:hover {
+  border-color: rgba(185, 134, 63, 0.4);
+}
+
+.cardHeader {
+  padding: 12px 16px;
+  background-color: rgba(58, 50, 38, 0.5);
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tableNo {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--kagit);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.time {
+  font-size: 13px;
+  color: var(--kagit-dim);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.cardBody {
+  padding: 16px;
+  flex-grow: 1;
+}
+
+/* Durum rozetleri: tek base class + modifier */
+.statusBadge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.statusBadge--new {
+  background-color: var(--kor-red);
+  color: #fff;
+}
+.statusBadge--preparing {
+  background-color: var(--warning);
+  color: var(--is);
+}
+.statusBadge--ready {
+  background-color: var(--success);
+  color: #fff;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itemRow {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed var(--hairline);
+}
+.itemRow:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.itemInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--kagit);
+}
+
+.itemQuantity {
+  color: var(--bakir);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+}
+
+.itemNote {
+  font-size: 13px;
+  color: var(--kor-red);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.cardFooter {
+  padding: 12px 16px;
+  border-top: 1px solid var(--hairline);
+  background-color: rgba(34, 29, 22, 0.4);
+}
+
+/* Aksiyon butonları: tek base class + modifier */
+.actionButton {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.actionButton:hover {
+  filter: brightness(1.1);
+}
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none;
+}
+.actionButton--preparing {
+  background-color: var(--warning);
+  color: var(--is);
+}
+.actionButton--ready {
+  background-color: var(--success);
+  color: #fff;
+}
+.actionButton--complete {
+  background-color: var(--info);
+  color: #fff;
+}
+
+/* ===== Stok & Kategori Öğeleri ===== */
+.stockBadge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.stockBadge--critical {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--kor-red);
+  border: 1px solid var(--kor-red);
+}
+.stockBadge--normal {
+  background-color: rgba(108, 127, 68, 0.2);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.stockDecreaseBtn,
+.stockIncreaseBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, filter 0.2s ease;
+}
+.stockDecreaseBtn {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--kor-red);
+  border: 1px solid var(--kor-red);
+}
+.stockDecreaseBtn:hover {
+  background-color: rgba(239, 68, 68, 0.3);
+}
+.stockIncreaseBtn {
+  background-color: var(--bakir);
+  color: var(--is);
+  border: none;
+}
+.stockIncreaseBtn:hover {
+  filter: brightness(1.1);
+}
+
+.categoryFilterContainer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.categoryBtn {
+  background-color: var(--duman);
+  color: var(--kagit-dim);
+  border: 1px solid var(--hairline);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.categoryBtn:hover {
+  border-color: var(--bakir);
+  color: var(--kagit);
+}
+.categoryBtn--active {
+  background-color: var(--bakir);
+  color: var(--is);
+  border-color: var(--bakir);
+  font-weight: bold;
+}
+
+.categoryTag {
+  font-size: 11px;
+  color: var(--kagit-dim);
+  margin-top: 2px;
+}
+
+.addStockButton {
+  background-color: var(--bakir);
+  color: var(--is);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.addStockButton:hover {
+  filter: brightness(1.1);
+}
+
+.deleteIconBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.deleteIconBtn:hover {
+  opacity: 1;
+}
+
+/* ===== Modal Stilleri ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modalContent {
+  background-color: var(--is);
+  border: 1px solid var(--hairline);
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--kagit);
+  margin-bottom: 20px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.formGroup label {
+  font-size: 13px;
+  color: var(--kagit-dim);
+}
+
+.formInput,
+.formSelect {
+  background-color: var(--duman);
+  border: 1px solid var(--hairline);
+  color: var(--kagit);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+.formInput:focus,
+.formSelect:focus {
+  border-color: var(--bakir);
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+}
+.formRow .formGroup {
+  flex: 1;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.modalCancelBtn {
+  flex: 1;
+  background-color: transparent;
+  color: var(--kagit-dim);
+  border: 1px solid var(--hairline);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.modalCancelBtn:hover {
+  background-color: rgba(58, 50, 38, 0.2);
+}
+
+.modalSubmitBtn {
+  flex: 1;
+  background-color: var(--bakir);
+  color: var(--is);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.modalSubmitBtn:hover {
+  filter: brightness(1.1);
+}
+/* =========================================
+   MOBİL UYUMLULUK VE RESPONSİVE KURALLARI
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+  /* Genel konteyner iç boşluklarını mobilde daraltıyoruz */
+  .container {
+    padding: 14px;
+  }
+
+  /* Navbar yapısını mobilde alt alta ve düzenli hale getiriyoruz */
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .navLeft {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* Navigasyon linklerini mobilde tam genişlik yapıyoruz ki kolay dokunulsun */
+  .navLink,
+  .navLinkActive {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navRight {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--hairline);
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  /* Başlık ve sayaç rozetini mobilde alt alta veya esnek hizalıyoruz */
+  .contentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .counterBadge {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Grid yapısını telefonda tek sütuna düşürerek taşmaları önlüyoruz */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Modal pencerelerini mobilde kenarlardan boşluk bırakarak tam oturtturuyoruz */
+  .modalContent {
+    margin: 16px;
+    max-width: calc(100% - 32px);
+    padding: 18px;
+  }
+
+  /* Form satırlarını mobilde dikey akışa çeviriyoruz */
+  .formRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Çok küçük ekranlı telefonlar için (max 480px) ekstra önlemler */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+  
+  .orderCard {
+    border-radius: 8px;
+  }
+}
+/* =========================================
+   HAMBURGER MENÜ VE GÜNCELLENMİŞ MOBİL KURALLARI
+   ========================================= */
+
+/* Normal masaüstü görünümünde hamburger buton gizli */
+.hamburgerBtn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--hairline);
+  color: var(--kagit);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Mobil ekranlar için yapılandırma (max 768px) */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 14px;
+  }
+
+  .hamburgerBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Navbar ana kapsayıcısı */
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  /* Üst satır: Marka ve Hamburger buton yan yana */
+  .navTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Açılıp kapanabilen menü alanı (başlangıçta gizli) */
+  .navCollapse {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* Menü açıldığında aktif olacak sınıf */
+  .navCollapseOpen {
+    display: flex;
+  }
+
+  .navLeft {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .navLink,
+  .navLinkActive {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navRight {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--hairline);
+    padding-top: 10px;
+    width: 100%;
+  }
+
+  .contentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .counterBadge {
+    width: 100%;
+    text-align: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .modalContent {
+    margin: 16px;
+    max-width: calc(100% - 32px);
+    padding: 18px;
+  }
+
+  .formRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+  
+  .orderCard {
+    border-radius: 8px;
+  }
+}
