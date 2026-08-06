@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-// get-tüm siparişleri getir
+// GET - Tüm siparişleri getir
 export async function GET() {
   try {
     const orders = await prisma.order.findMany({
@@ -28,13 +28,12 @@ export async function GET() {
   }
 }
 
-// post-yeni sipariş oluştur 
+// POST - Yeni sipariş oluştur
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { tableId, items, notes } = body;
+    const { tableId, items } = body;
 
-    
     if (!tableId || !items || !Array.isArray(items) || items.length === 0) {
       return NextResponse.json(
         { error: 'Masa ID ve en az bir sipariş ürünü gereklidir.' },
@@ -42,38 +41,15 @@ export async function POST(request: Request) {
       );
     }
 
-    
-    let totalPrice = 0;
-    const orderItemsData: { menuItemId: string; quantity: number }[] = [];
+    const orderItemsData = items.map((item: { menuItemId: string; quantity: number }) => ({
+      menuItemId: item.menuItemId,
+      quantity: Number(item.quantity),
+    }));
 
-    for (const item of items) {
-      const menuItem = await prisma.menuItem.findUnique({
-        where: { id: item.menuItemId },
-      });
-
-      if (!menuItem) {
-        return NextResponse.json(
-          { error: `Ürün bulunamadı: ${item.menuItemId}` },
-          { status: 404 }
-        );
-      }
-
-      const itemTotalPrice = menuItem.price * item.quantity;
-      totalPrice += itemTotalPrice;
-
-      orderItemsData.push({
-        menuItemId: item.menuItemId,
-        quantity: item.quantity,
-      });
-    }
-
-    
     const newOrder = await prisma.$transaction(async (tx) => {
       const order = await tx.order.create({
         data: {
           tableId,
-          totalPrice,
-          notes,
           status: 'PENDING',
           items: {
             create: orderItemsData,
@@ -89,10 +65,10 @@ export async function POST(request: Request) {
         },
       });
 
-      
+      // Masa durumunu FULL (Dolu) olarak güncelle
       await tx.table.update({
         where: { id: tableId },
-        data: { status: 'OCCUPIED' },
+        data: { status: 'FULL' },
       });
 
       return order;
