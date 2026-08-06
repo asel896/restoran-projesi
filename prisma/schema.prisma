@@ -1,0 +1,98 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   // "ADMIN", "WAITER", "KITCHEN"
+  createdAt DateTime @default(now())
+
+  @@map("users")
+}
+
+model Category {
+  id    String     @id @default(uuid())
+  name  String
+  items MenuItem[]
+
+  @@map("categories")
+}
+
+model MenuItem {
+  id          String      @id @default(uuid())
+  name        String
+  price       Float
+  description String?
+  image       String?
+  categoryId  String
+  category    Category    @relation(fields: [categoryId], references: [id])
+  orderItems  OrderItem[]
+
+  @@map("menu_items")
+}
+
+model Table {
+  id           String        @id @default(uuid())
+  number       Int           @unique
+  capacity     Int
+  status       String        @default("EMPTY") // "EMPTY", "FULL", "RESERVED"
+  qrCode       String?       // QR rota klasörü için
+  orders       Order[]
+  reservations Reservation[]
+  waiterCalls  WaiterCall[]
+
+  @@map("tables")
+}
+
+model Order {
+  id        String      @id @default(uuid())
+  tableId   String
+  table     Table       @relation(fields: [tableId], references: [id])
+  status    String      @default("PENDING") // "PENDING", "PREPARING", "READY", "SERVED", "PAID"
+  createdAt DateTime    @default(now())
+  items     OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id         String   @id @default(uuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id])
+  menuItemId String
+  menuItem   MenuItem @relation(fields: [menuItemId], references: [id])
+  quantity   Int
+
+  @@map("order_items")
+}
+
+model Reservation {
+  id          String   @id @default(uuid())
+  customerName String
+  phone       String
+  date        DateTime
+  guestCount  Int
+  tableId     String
+  table       Table    @relation(fields: [tableId], references: [id])
+  status      String   @default("CONFIRMED") // "PENDING", "CONFIRMED", "CANCELLED"
+
+  @@map("reservations")
+}
+
+model WaiterCall {
+  id        String   @id @default(uuid())
+  tableId   String
+  table     Table    @relation(fields: [tableId], references: [id])
+  status    String   @default("PENDING") // "PENDING", "COMPLETED"
+  createdAt DateTime @default(now())
+
+  @@map("waiter_calls")
+}
