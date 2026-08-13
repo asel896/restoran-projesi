@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-// GET - Tüm siparişleri getir
-export async function GET() {
+
+export async function GET(request: Request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const status = searchParams.get('status');
+
+    const whereClause = status ? { status } : {};
+
     const orders = await prisma.order.findMany({
+      where: whereClause,
       include: {
         table: true,
         items: {
@@ -27,6 +33,7 @@ export async function GET() {
     );
   }
 }
+
 
 // POST - Yeni sipariş oluştur
 export async function POST(request: Request) {
@@ -83,3 +90,4 @@ export async function POST(request: Request) {
     );
   }
 }
+
